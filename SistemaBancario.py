@@ -9,6 +9,7 @@ QUANTIDADE_SAQUE = 3
 def depositar_valores():
     valor_depositado = float(input("Digite o valor a ser depositado: "))
     deposito_valores.append(valor_depositado)
+    print("Deposito realizado com sucesso.")
     global saldo_conta
     saldo_conta += valor_depositado
     
@@ -39,6 +40,8 @@ def extrato_conta():
     if saldo_conta == 0:
         print ("Não há movimentações na conta.")
     else:
+        print("----------EXTRATO---------")
+        print()
         print("Valores depositados: ")
         for depositados in deposito_valores:
             print(depositados)
@@ -48,7 +51,8 @@ def extrato_conta():
         print()
         print("SALDO DA CONTA:")
         print(saldo_conta)
-
+        print()
+        print("---------------------------")
 
 print("BANCO FGTHOMAS")
 print()
