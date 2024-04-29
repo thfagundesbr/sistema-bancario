@@ -14,24 +14,24 @@ def depositar_valores():
     saldo_conta += valor_depositado
     
 def sacar_valores():
-    QUANTIDADE_SAQUE = 3
     global saldo_conta
-    while QUANTIDADE_SAQUE > 0:
+    global QUANTIDADE_SAQUE
+    if QUANTIDADE_SAQUE > 0:
          valor_sacado = float(input("Digite o valor que deseja sacar:"))
          if valor_sacado > 500:
            print("Não é permitido sacar valores acima de 500,00 reais!")
-           break
+          
          elif saldo_conta == 0:
              print("Não há saldo disponível.")
-             break
+            
          else:
-             print(f"Saque do valor {valor_sacado} realizado com sucesso")
+             print(f"Saque do valor {valor_sacado} realizado com sucesso. Você ainda tem mais {QUANTIDADE_SAQUE} disponíveis.")
              saques_valores.append(valor_sacado)
              saldo_conta -= valor_sacado
              QUANTIDADE_SAQUE -= 1
          
-         if QUANTIDADE_SAQUE == 0:
-              print("Você atingiu o número máximo de saques diários. Tente novamente amanhã")
+    else:
+        print("Você atingiu o número máximo de saques diários. Tente novamente amanhã")
             
     
 
@@ -58,7 +58,6 @@ print("BANCO FGTHOMAS")
 print()
 print()
 while True:
-    QUANTIDADE_SAQUE = 3
     print("[1] Deposito [2] Saque [3] Extrato [4] Sair")
     print()
     print()
